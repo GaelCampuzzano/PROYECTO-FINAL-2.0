@@ -5,3 +5,10 @@ C:\Users\52624\Documents\Prueba\PROYECTO-FINAL-2.0\obj\Debug\PROYECTO-FINAL-2.0.
 C:\Users\52624\Documents\Prueba\PROYECTO-FINAL-2.0\obj\Debug\PROYECTO-FINAL-2.0.csproj.CoreCompileInputs.cache
 C:\Users\52624\Documents\Prueba\PROYECTO-FINAL-2.0\obj\Debug\PROYECTO-FINAL-2.0.exe
 C:\Users\52624\Documents\Prueba\PROYECTO-FINAL-2.0\obj\Debug\PROYECTO-FINAL-2.0.pdb
+C:\Users\Gael Campuzano\source\repos\PROYECTO-FINAL-2.0\bin\Debug\PROYECTO-FINAL-2.0.exe.config
+C:\Users\Gael Campuzano\source\repos\PROYECTO-FINAL-2.0\bin\Debug\PROYECTO-FINAL-2.0.exe
+C:\Users\Gael Campuzano\source\repos\PROYECTO-FINAL-2.0\bin\Debug\PROYECTO-FINAL-2.0.pdb
+C:\Users\Gael Campuzano\source\repos\PROYECTO-FINAL-2.0\obj\Debug\PROYECTO-FINAL-2.0.csproj.AssemblyReference.cache
+C:\Users\Gael Campuzano\source\repos\PROYECTO-FINAL-2.0\obj\Debug\PROYECTO-FINAL-2.0.csproj.CoreCompileInputs.cache
+C:\Users\Gael Campuzano\source\repos\PROYECTO-FINAL-2.0\obj\Debug\PROYECTO-FINAL-2.0.exe
+C:\Users\Gael Campuzano\source\repos\PROYECTO-FINAL-2.0\obj\Debug\PROYECTO-FINAL-2.0.pdb
