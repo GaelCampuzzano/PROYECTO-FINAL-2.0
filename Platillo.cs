@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace PROYECTO_FINAL_2._0
 {
-    internal class Platillo
+    public class Platillo
     {
-        int x=2;
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public decimal Precio { get; set; }
+
+        public Platillo(string nombre, string descripcion, decimal precio)
+        {
+            Nombre = nombre;
+            Descripcion = descripcion;
+            Precio = precio;
+        }
     }
 }
