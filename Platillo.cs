@@ -8,5 +8,6 @@ namespace PROYECTO_FINAL_2._0
 {
     internal class Platillo
     {
+        int x=2;
     }
 }
