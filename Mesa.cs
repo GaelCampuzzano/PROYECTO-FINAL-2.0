@@ -1,31 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace PROYECTO_FINAL_2._0
+namespace Restaurante2._0
 {
-    internal class Mesa
+    public class Mesa
     {
-        public int Numero { get; }
-        public int Sillas { get; }
-        public bool Ocupada { get; private set; }
+        public int Numero { get; set; }
+        public int Sillas { get; set; }
+        public bool Ocupada { get; set; }
 
-        public Mesa(int numero, int sillas)
+        public string EstadoOcupacion()
         {
-            if (sillas <= 0)
-                throw new ArgumentException("El número de sillas debe ser mayor que cero.");
-
-            Numero = numero;
-            Sillas = sillas;
-            Ocupada = false;
-        }
-
-        public void OcuparMesa()
-        {
-            Ocupada = true;
-        }
-
-        public void LiberarMesa()
-        {
-            Ocupada = false;
+            return Ocupada ? "Ocupada" : "Disponible";
         }
     }
 }
