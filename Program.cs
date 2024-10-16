@@ -238,23 +238,36 @@ namespace Restaurante2._0
                 // Añadir platillos a la comanda
                 while (true)
                 {
-                    Console.WriteLine("Ingrese el nombre del platillo que desea agregar (o escriba 'fin' para terminar): ");
-                    string nombrePlatillo = Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Platillos disponibles:");
+                    for (int i = 0; i < _platillos.Count; i++)
+                    {
+                        Platillo platillo = _platillos[i];
+                        Console.WriteLine($"{i + 1}. {platillo.Nombre} - ${platillo.Precio}");
+                    }
+                    Console.WriteLine("Seleccione el número del platillo que desea agregar (o escriba '0' para terminar): ");
 
-                    if (nombrePlatillo.ToLower() == "fin")
+                    int seleccion = Convert.ToInt32(Console.ReadLine());
+
+                    if (seleccion == 0)
                     {
                         break;
                     }
-
-                    Platillo platillo = _platillos.Find(p => p.Nombre.ToLower() == nombrePlatillo.ToLower());
-                    if (platillo != null)
+                    else if (seleccion > 0 && seleccion <= _platillos.Count)
                     {
-                        comanda.Platillos.Add(platillo);
-                        Console.WriteLine($"Platillo '{platillo.Nombre}' agregado a la comanda.");
+                        Platillo platilloSeleccionado = _platillos[seleccion - 1];
+                        comanda.Platillos.Add(platilloSeleccionado);
+                        Console.WriteLine($"Platillo '{platilloSeleccionado.Nombre}' agregado a la comanda.");
+
+                        // Esperar a que el usuario presione una tecla antes de continuar
+                        Console.WriteLine("Presione cualquier tecla para continuar...");
+                        Console.ReadKey();
                     }
                     else
                     {
-                        Console.WriteLine("Platillo no encontrado. Intente de nuevo.");
+                        Console.WriteLine("Selección inválida. Intente de nuevo.");
+                        Console.WriteLine("Presione cualquier tecla para continuar...");
+                        Console.ReadKey();
                     }
                 }
 
@@ -277,6 +290,7 @@ namespace Restaurante2._0
                 Console.WriteLine("Mesa no encontrada");
             }
         }
+
 
 
         private static void CerrarComanda()
