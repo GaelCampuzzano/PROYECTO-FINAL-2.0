@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PROYECTO_FINAL_2._0
 {
     internal class CategoriaMenu
     {
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
-        public List<Platillo> Platillos { get; set; }
+        public string Nombre { get; }
+        public string Descripcion { get; }
+        public List<Platillo> Platillos { get; }
 
         public CategoriaMenu(string nombre, string descripcion)
         {
@@ -24,5 +21,9 @@ namespace PROYECTO_FINAL_2._0
             Platillos.Add(platillo);
         }
 
+        public Platillo BuscarPlatillo(string nombre)
+        {
+            return Platillos.Find(p => p.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase));
+        }
     }
 }
