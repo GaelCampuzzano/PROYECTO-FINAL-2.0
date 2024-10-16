@@ -16,6 +16,7 @@ namespace Restaurante2._0
 
         private static void IniciarSistema()
         {
+            Console.Clear();
             Console.WriteLine("Sistema de Gestión de Restaurante");
             Console.WriteLine("-------------------------------");
 
@@ -56,11 +57,13 @@ namespace Restaurante2._0
 
         private static void GestionarMenu()
         {
+            Console.Clear();
             Console.WriteLine("Gestionar Menú");
             Console.WriteLine("------------");
 
             while (true)
             {
+                
                 Console.WriteLine("Opciones:");
                 Console.WriteLine("1. Agregar Platillo");
                 Console.WriteLine("2. Quitar Platillo");
@@ -92,6 +95,7 @@ namespace Restaurante2._0
 
         private static void AgregarPlatillo()
         {
+            Console.Clear();
             Console.Write("Ingrese el nombre del platillo: ");
             string nombre = Console.ReadLine();
             Console.Write("Ingrese la descripción del platillo: ");
@@ -109,6 +113,7 @@ namespace Restaurante2._0
 
         private static void QuitarPlatillo()
         {
+            Console.Clear();
             Console.Write("Ingrese el nombre del platillo a quitar: ");
             string nombre = Console.ReadLine();
 
@@ -126,6 +131,7 @@ namespace Restaurante2._0
 
         private static void VerPlatillos()
         {
+            Console.Clear();
             Console.WriteLine("Platillos:");
             foreach (Platillo platillo in _platillos)
             {
@@ -153,7 +159,7 @@ namespace Restaurante2._0
                 switch (opcion)
                 {
                     case 1:
-                        AgregarMesa();
+                        AgregarMesas();
                         break;
                     case 2:
                         QuitarMesa();
@@ -170,21 +176,25 @@ namespace Restaurante2._0
             }
         }
 
-        private static void AgregarMesa()
-        {
-            Console.Write("Ingrese el número de la mesa: ");
-            int numero = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Ingrese el número de sillas: ");
-            int sillas = Convert.ToInt32(Console.ReadLine());
+        private static void AgregarMesas()
+        {         
+                Console.Write("Ingrese el número de mesas a agregar: ");
+                int cantidadMesas = Convert.ToInt32(Console.ReadLine());
 
-            Mesa mesa = new Mesa { Numero = numero, Sillas = sillas, Ocupada = false };
-            _mesas.Add(mesa);
+                for (int i = 1; i <= cantidadMesas; i++)
+                {
+                    Console.Write($"Ingrese el número de sillas para la mesa {i}: ");
+                    int sillasPorMesa = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Mesa agregada con éxito");
+                    Mesa mesa = new Mesa { Numero = _mesas.Count + 1, Sillas = sillasPorMesa, Ocupada = false };
+                    _mesas.Add(mesa);
+                    Console.WriteLine($"Mesa {mesa.Numero} con {sillasPorMesa} sillas agregada con éxito");
+                }
         }
 
         private static void QuitarMesa()
         {
+            Console.Clear();
             Console.Write("Ingrese el número de la mesa a quitar: ");
             int numero = Convert.ToInt32(Console.ReadLine());
 
@@ -202,6 +212,7 @@ namespace Restaurante2._0
 
         private static void VerMesas()
         {
+            Console.Clear();
             Console.WriteLine("Mesas:");
             foreach (Mesa mesa in _mesas)
             {
@@ -211,6 +222,7 @@ namespace Restaurante2._0
 
         private static void CrearComanda()
         {
+            Console.Clear();
             Console.Write("Ingrese el número de la comanda: ");
             int numero = Convert.ToInt32(Console.ReadLine());
             Console.Write("Ingrese el número de la mesa: ");
@@ -235,6 +247,7 @@ namespace Restaurante2._0
 
         private static void CerrarComanda()
         {
+            Console.Clear();
             Console.Write("Ingrese el número de la comanda: ");
             int numero = Convert.ToInt32(Console.ReadLine());
 
@@ -256,6 +269,7 @@ namespace Restaurante2._0
 
         private static void VerDisponibilidadMesas()
         {
+            Console.Clear();
             Console.WriteLine("Disponibilidad de Mesas:");
             foreach (Mesa mesa in _mesas)
             {
