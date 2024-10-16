@@ -225,25 +225,59 @@ namespace Restaurante2._0
             Console.Clear();
             Console.Write("Ingrese el número de la comanda: ");
             int numero = Convert.ToInt32(Console.ReadLine());
+
             Console.Write("Ingrese el número de la mesa: ");
             int numeroMesa = Convert.ToInt32(Console.ReadLine());
 
             Mesa mesa = _mesas.Find(m => m.Numero == numeroMesa);
             if (mesa != null)
             {
+                // Crear nueva comanda
                 Comanda comanda = new Comanda { Numero = numero, Mesa = mesa, Platillos = new List<Platillo>() };
-                _comandas.Add(comanda);
 
-                // Actualiza la propiedad Ocupada de la mesa
+                // Añadir platillos a la comanda
+                while (true)
+                {
+                    Console.WriteLine("Ingrese el nombre del platillo que desea agregar (o escriba 'fin' para terminar): ");
+                    string nombrePlatillo = Console.ReadLine();
+
+                    if (nombrePlatillo.ToLower() == "fin")
+                    {
+                        break;
+                    }
+
+                    Platillo platillo = _platillos.Find(p => p.Nombre.ToLower() == nombrePlatillo.ToLower());
+                    if (platillo != null)
+                    {
+                        comanda.Platillos.Add(platillo);
+                        Console.WriteLine($"Platillo '{platillo.Nombre}' agregado a la comanda.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Platillo no encontrado. Intente de nuevo.");
+                    }
+                }
+
+                // Agregar comanda a la lista y marcar mesa como ocupada
+                _comandas.Add(comanda);
                 mesa.Ocupada = true;
 
-                Console.WriteLine("Comanda creada con éxito");
+                // Mostrar resumen de la comanda
+                Console.WriteLine("\nComanda creada con éxito:");
+                Console.WriteLine($"Número de Comanda: {comanda.Numero}");
+                Console.WriteLine($"Número de Mesa: {comanda.Mesa.Numero}");
+                Console.WriteLine("Platillos pedidos:");
+                foreach (var platillo in comanda.Platillos)
+                {
+                    Console.WriteLine($"- {platillo.Nombre} (${platillo.Precio})");
+                }
             }
             else
             {
                 Console.WriteLine("Mesa no encontrada");
             }
         }
+
 
         private static void CerrarComanda()
         {
