@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Restaurante2._0
 {
     public class Comanda
     {
-        public int Numero { get; set; }
-        public Mesa Mesa { get; set; }
-        public List<Platillo> Platillos { get; set; }
+        public int Numero { get; private set; }
+        public Mesa Mesa { get; private set; }
+        public List<Platillo> Platillos { get; private set; }
+        public DateTime FechaHora { get; private set; }
+
+        public Comanda(Mesa mesa, List<Platillo> platillos, int numero)
+        {
+            Mesa = mesa;
+            Platillos = platillos;
+            Numero = numero;
+            FechaHora = DateTime.Now;
+        }
     }
 }
